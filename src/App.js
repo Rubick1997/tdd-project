@@ -3,15 +3,19 @@ import "./App.css";
 import { useState } from "react";
 import Counter from "./Counter";
 import MyComponent from "./hooksTesting/MyComponent";
+import { useCounter } from "./useCounter/useCounter";
 
 function App() {
-
-	return (
-		<div className='App'>
-		<Counter/>
-		<MyComponent/>
-		</div>
-	);
+  const { count, increment, decrement } = useCounter();
+  return (
+    <div className="App">
+      <Counter />
+      <MyComponent />
+      <p>{count}</p>
+      <button onClick={increment}>Increment</button>
+      <button onClick={decrement}>Decrement</button>
+    </div>
+  );
 }
 
 export default App;
